@@ -1,10 +1,16 @@
 import { Container, Form, FormControl, Nav, NavDropdown, Navbar } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
     return (
         <Navbar expand="lg" bg="primary" variant='dark'>
             <Container>
-                <Navbar.Brand href="/">Note Zipper</Navbar.Brand>
+                <Navbar.Brand>
+                    <Link to="/">
+                        Note Zipper
+                    </Link>
+
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
@@ -13,7 +19,10 @@ const Header = () => {
                         </Form>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#home">My Notes</Nav.Link>
+                        <Nav.Link href="/myNotes">
+                            <Link to='/mynotes'></Link>
+                            My Notes
+                        </Nav.Link>
 
                         <NavDropdown title="Vatsala Agarwal" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">My Profile</NavDropdown.Item>
