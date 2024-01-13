@@ -1,18 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import MainScreen from '../../components/MainScreen'
 import { Link } from 'react-router-dom'
 import { Badge, Button, Card } from 'react-bootstrap'
 import notes, { } from "../../data/notes"
-import { Accordion } from 'react-bootstrap'
-
+import axios from "axios";
 
 
 const MyNotes = () => {
+
+    const [notes, setNotes] = useState([]);
+
     const deleteHandler = (id) => {
         if (window.confirm("Are you sure?")) {
-
         }
     };
+
+    const fetchNotes = async () => {
+        const { data } = await axios.get("/api/notes");
+
+        setNotes(data);
+    }
+    console.log(notes);
+
+    useEffect(() => {
+
+        fetchNotes();
+    }, [])
+
 
     return (
         <MainScreen title='Welcome Back Vatsala Agarwal..'>
